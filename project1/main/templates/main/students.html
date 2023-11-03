@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Результаты поиска учеников</title>
+</head>
+<body>
+
+<h1>Результаты поиска учеников</h1>
+
+{% if students %}
+    <ul>
+        {% for student in students %}
+            <li>{{ student.name }} - Группа: {{ student.group }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Ученики не найдены</p>
+{% endif %}
+
+</body>
+</html>

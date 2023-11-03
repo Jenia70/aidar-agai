@@ -1,0 +1,24 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+О сайте
+{% endblock %}
+
+{% block content %}
+  <h1>Поиск учеников</h1>
+
+<form action="/search" method="post">
+    <label for="search_query">Поиск:</label>
+    <input type="text" id="search_query" name="search_query" placeholder="Введите имя ученика"><br><br>
+    <input type="submit" value="Найти">
+</form>
+
+{% if search_results %}
+    <h2>Результаты поиска:</h2>
+    <ul>
+        {% for student in search_results %}
+            <li>{{ student.name }} - Группа: {{ student.group }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
